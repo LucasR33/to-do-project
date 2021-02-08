@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <div class="">
+      <h2>TO-Dos</h2>
+    </div>
+    <div>
+      <div class="">
+        <form class="" action="/" method="post">
+          <label for="">Nouveau To-Do :</label>
+          <input type="text" name="todoTitle" id="todoTitle" value="">
+          <label for="">Active :</label>
+          <input type="text" name="todoActive" id="todoActive" value="">
+          <button type="submit" name="button">Ajouter</button>
+        </form>
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+      const form = document.querySelector('form');
+      form.addEventListener('submit', addTodo);
+
+      function addTodo(event) {
+        event.preventDefault();
+        if(fetch){
+          fetch('/', {
+            method: 'POST',
+            body: new FormData(form)
+          })
+          .then(checkStatus)
+          .catch(function(error){
+            console.error('request failed', error);
+          })
+        }else {
+
+        }
+      }
+      function checkStatus(response){
+          if(response.status >= 200 && response.status < 300){
+            let newtodoDiv = document.createElement('tr');
+            const todoTitle = document.getElementById('todoTitle').value;
+            const todoActive = document.getElementById('todoActive').value;
+            newMovieDiv.innerHTML = '<tr><td>'+todoTitle+'</td><td>'+todoActive+'</td></tr>';
+            document.querySelector('.exempleTodo').appendChild(newtodoDiv);
+            form.reset;
+          }
+      }
+    </script>
+  </body>
+</html>

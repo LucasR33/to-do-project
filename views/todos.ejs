@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <div class="">
+      <h2>TO-Dos</h2>
+    </div>
+    <div>
+        <table>
+            <th>To-Dos : </th>
+            <th>Active :</th>
+            <div >
+            <% for(todo of todos) {%>
+                <tr>
+                <td><%= todo.todoTitle %></td>
+                <td><%= todo.todoActive %></td>
+                </tr>
+            <% } %>
+            </div>
+        </table>
+    </div>
+
+    </div>
+  </body>
+</html>
